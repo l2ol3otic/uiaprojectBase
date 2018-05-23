@@ -1,0 +1,151 @@
+<div class="content-wrapper">
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+          <div class="box-header">
+            <div class="pull-left">
+              <h3 class="box-title">รายการคอมพิวเตอร์สำนักงานกรุงเทพ</h3>
+            </div>
+            <div class="pull-right">
+              <button type="x" class="btn btn-primary" data-toggle="modal" data-target="#newCom" id="s1">NEW COMPUTER</button>
+            </div>
+
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table id="tableCom" class="display" width="100%">
+              <thead>
+                <tr>
+                  <th>PCNAME</th>
+                  <th>IP Adress</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Window</th>
+                  <th>Warranty Date</th>
+                  <th>User</th>
+                  <th>Operate</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+        <!-- /.box -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </section>
+  <!-- /.content -->
+</div>
+<div class="modal fade" id="newCom" tabindex="0" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="comForm" (ngSubmit)="onSubmit()">
+        <div id="com-data">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="offices">สำนักงาน</label>
+              <input type="text" id="offices" formControlName="offices" class="form-control" disabled>
+            </div>
+            <div class="form-group">
+                <label for="pcnames">PCNAME</label>
+                <input type="text" id="pcnames" formControlName="pcnames" class="form-control">
+              </div>
+            <div class="form-group">
+              <label for="ipaddress">IPADDRESS</label>
+              <input type="text" id="ipaddress" formControlName="ipaddress" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="macaddress">MACADDRESS</label>
+              <input type="text" id="macaddress" formControlName="macaddress" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="brand">BRAND</label>
+              <input type="text" id="brand" formControlName="brand" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="model">MODEL</label>
+              <input type="text" id="model" formControlName="model" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="cpu">CPU</label>
+              <input type="text" id="cpu" formControlName="cpu" class="form-control">
+            </div>
+            <label for="ram">RAM</label>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-9">
+                  <input type="text" id="ram" formControlName="ram" class="form-control">
+                </div>
+                <div class="col-sm-3">
+                  <select id='ramcap' formControlName="ramcap" class="form-control">
+                    <option value=" GB">GB</option>
+                    <option value=" MB">MB</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <label for="hdd">HDD</label>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-9">
+                  <input type="text" id="hdd" formControlName="hdd" class="form-control">
+                </div>
+                <div class="col-sm-3">
+                  <select id='hddcap' formControlName="hddcap" class="form-control">
+                    <option value=" TB">TB</option>
+                    <option value=" GB">GB</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <label for="window">WINDOW</label>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-9">
+                  <select id='window' formControlName="window" class="form-control">
+                    <option *ngFor="let item of dataWindow">{{item.window_name}}</option>
+                  </select>
+                </div>
+                <div class="col-sm-3">
+                  <select id='bit' formControlName="bit" class="form-control">
+                    <option value=" 32 BIT">32 BIT</option>
+                    <option value=" 64 BIT">64 BIT</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="serial">SERIAL</label>
+              <input type="text" id="serial" formControlName="serial" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="warranty">WARRANTY</label>
+              <input type="text" id="warranty" formControlName="warranty" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="user">USER</label>
+              <select id='user' formControlName="user" class="form-control">
+                <option value=" 0 ">...</option>
+                <option *ngFor="let item of dataUser">{{item.user_name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
