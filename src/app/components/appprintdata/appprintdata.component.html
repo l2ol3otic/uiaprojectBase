@@ -87,3 +87,52 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="upPrint" tabindex="0" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลปริ้นเตอร์</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="printForm" (ngSubmit)="onUpdate()">
+        <div id="com-data">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="poffice">สำนักงาน</label>
+              <input type="text" id="poffice" formControlName="poffice" class="form-control" disabled>
+            </div>
+            <div class="form-group">
+                <label for="printbrand">BRAND</label>
+                <input type="text" id="printbrand" formControlName="printbrand" class="form-control" >
+              </div>
+            <div class="form-group">
+              <label for="printmodel">MODEL</label>
+              <input type="text" id="printmodel" formControlName="printmodel" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="printserial">SERIAL</label>
+              <input type="text" id="printserial" formControlName="printserial" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="printwarranty">WARRANTY</label>
+              <input type="text" id="printwarranty" formControlName="printwarranty" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="printuser">USER</label>
+              <select id='printuser' formControlName="printuser" class="form-control">
+                <option value=" 0 ">...</option>
+                <option *ngFor="let item of dataUser">{{item.user_name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

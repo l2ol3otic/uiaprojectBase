@@ -116,11 +116,13 @@ export class AppcomdataComponent implements OnInit {
     });
   }
   onReset() {
+    var office = "สำนักงานใหญ่กรุงเทพ"
     this.comForm.reset();
     this.comForm.patchValue({
       bit: " 64 BIT",
       hddcap: " TB",
-      ramcap: " GB"
+      ramcap: " GB",
+      offices: office
     });
   }
 

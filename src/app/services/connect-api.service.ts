@@ -77,6 +77,9 @@ export class ConnectApiService {
             case "postuser":
                 posturl = 'http://127.0.0.1:8081/addUser'
                 break;
+            case "postprint":
+                posturl = 'http://127.0.0.1:8081/addPrint'
+                break;
             default:
                 posturl = 'http://192.168.137.204:8081/ิ  '
         }
@@ -88,6 +91,36 @@ export class ConnectApiService {
                 'Content-Type': 'application/json'
             },
             json: dataforpost
+        };
+        request(options, function (err, res, body) {
+            if (res && (res.statusCode === 200 || res.statusCode === 201)) {
+                console.log(body);
+            }
+        });
+    }
+    delRequestAPI(datafordel, codefordel) {
+        var delurl
+        switch (codefordel) {
+            case "delcoms":
+                delurl = 'http://127.0.0.1:8081/delCom'
+                break;
+            case "deluser":
+                delurl = 'http://127.0.0.1:8081/delUser'
+                break;
+            case "upprint":
+                delurl = 'http://127.0.0.1:8081/upPrint'
+                break;
+            default:
+                delurl = 'http://192.168.137.204:8081/ิ  '
+        }
+        var request = require('request');
+        var options = {
+            url: delurl,
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            json: datafordel
         };
         request(options, function (err, res, body) {
             if (res && (res.statusCode === 200 || res.statusCode === 201)) {
